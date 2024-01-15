@@ -15,4 +15,10 @@ module.exports = {
     // 出力するファイル名を指定
     filename: "main.js",
   },
+  devServer: {
+    // ルートディレクトリを指定
+    // ここで指定したディレクトリがサーバーのルートディレクトリになる
+    // 例えば、index.htmlを指定した場合、http://localhost:8080/index.htmlでアクセスできる
+    contentBase: outputPath,
+  },
 };
