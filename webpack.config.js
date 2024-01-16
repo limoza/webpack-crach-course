@@ -15,6 +15,14 @@ module.exports = {
     // 出力するファイル名を指定
     filename: "main.js",
   },
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"],
+      },
+    ],
+  },
   devServer: {
     // ルートディレクトリを指定
     // ここで指定したディレクトリがサーバーのルートディレクトリになる
