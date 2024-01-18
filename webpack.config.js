@@ -1,5 +1,6 @@
 // pathモジュールを読み込む
 const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 // resolveメソッドで絶対パスを取得
 const outputPath = path.resolve(__dirname, "dist");
@@ -18,6 +19,12 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.jsx?$/,
+        // node_modulesは除外する
+        exclude: /node_modules/,
+        loader: "babel-loader",
+      },
+      {
         test: /\.css$/,
         use: ["style-loader", "css-loader"],
       },
@@ -33,6 +40,10 @@ module.exports = {
           name: "./images/[name].[ext]",
         },
       },
+      {
+        test: /.html$/,
+        loader: "html-loader",
+      },
     ],
   },
   devServer: {
@@ -41,4 +52,10 @@ module.exports = {
     // 例えば、index.htmlを指定した場合、http://localhost:8080/index.htmlでアクセスできる
     contentBase: outputPath,
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: "./src/index.html",
+      filename: "index.html",
+    }),
+  ],
 };
