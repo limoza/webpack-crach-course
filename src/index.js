@@ -1,18 +1,4 @@
-import _ from "lodash";
-import "./style.css";
-import "./style.scss";
-import nasa from "./nasa.png";
+import React from "react";
+import ReactDom from "react-dom";
 
-const component = () => {
-  const element = document.createElement("div");
-  const array = ["Hello", "webpack", "!!"];
-  element.innerHTML = array.join(" ");
-  return element;
-};
-
-document.body.appendChild(component());
-document.body.classList.add("haikei");
-
-const image = new Image();
-image.src = nasa;
-document.body.appendChild(image);
+ReactDom.render(<div>Hello</div>, document.getElementById("root"));
