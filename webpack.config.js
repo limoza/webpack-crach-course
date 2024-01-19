@@ -2,6 +2,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 
 // resolveメソッドで絶対パスを取得
 const outputPath = path.resolve(__dirname, "dist");
@@ -48,6 +49,17 @@ module.exports = {
     // ここで指定したディレクトリがサーバーのルートディレクトリになる
     // 例えば、index.htmlを指定した場合、http://localhost:8080/index.htmlでアクセスできる
     contentBase: outputPath,
+  },
+  optimization: {
+    minimizer: [
+      new UglifyJsPlugin({
+        uglifyOptions: {
+          compress: {
+            drop_console: true,
+          },
+        },
+      }),
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({
