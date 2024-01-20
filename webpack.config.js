@@ -72,4 +72,5 @@ module.exports = {
       filename: "[name].[hash].css",
     }),
   ],
+  devtool: "eval-source-map",
 };
