@@ -21,6 +21,13 @@ module.exports = {
   },
   module: {
     rules: [
+      // {
+      //   enforce: "pre",
+      //   test: /\.jsx?$/,
+      //   // node_modulesは除外する
+      //   exclude: /node_modules/,
+      //   loader: "eslint-loader",
+      // },
       {
         test: /\.jsx?$/,
         // node_modulesは除外する
